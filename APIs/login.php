@@ -4,7 +4,7 @@
     
     require_once 'db_conn.php';
     
-    echo "Connected successfully <br>";
+    // echo "Connected successfully <br>";
 
     //Assigning values passed from the form to the variables 
     $username = $_POST['username'];

@@ -4,10 +4,12 @@
     
     require_once 'db_conn.php';
     
-    echo "Connected successfully <br>";
+    // echo "Connected successfully <br>";
 
     //Assigning values passed from the form to the variables 
     $username = $_POST['username'];
+    $email = $_POST['email'];
+    $mobNum = $_POST['number'];
 	$password = $_POST['password'];
 
     //Hashing the passed password from the signin form
@@ -34,7 +36,7 @@
 
     }else{
 
-        $insertSql = "INSERT INTO users (username, password) VALUES ('$username', '$passwordHashed')";
+        $insertSql = "INSERT INTO users (username, email, password, contact_no) VALUES ('$username', '$email', '$mobNum', '$passwordHashed')";
 
         $insertQuery = mysqli_query($con, $insertSql);
 
