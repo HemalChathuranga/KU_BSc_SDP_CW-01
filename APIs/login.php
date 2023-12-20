@@ -10,17 +10,12 @@
     $username = $_POST['username'];
 	$password = $_POST['password'];
 
-    echo "API_Line-21 - User Variable Value is :".$username."<br>";
-	echo "API_Line-22 - Pass Variable Value is :".$password."<br>";
-
 
     $sql = "SELECT * FROM users WHERE username = '$username'";
 	
 	$result = mysqli_query($con, $sql);
 	$count = mysqli_num_rows($result);
 
-    echo $count;
-    echo "<br>";
 
     if($count == 1){
 
@@ -39,7 +34,7 @@
             echo $json_data;
             mysqli_close($con);
 
-            echo $finResult['message'];
+            //echo $finResult['message'];
 
         } else if($checkPassword === true){
 
@@ -52,8 +47,8 @@
             echo $json_data;
             mysqli_close($con);
         
-            echo "<br>";
-            echo $finResult['message'];
+            // echo "<br>";
+            // echo $finResult['message'];
 
         }
 
@@ -67,6 +62,6 @@
         mysqli_close($con);
 
 
-        echo $finResult['message'];
+        // echo $finResult['message'];
     }
 ?>

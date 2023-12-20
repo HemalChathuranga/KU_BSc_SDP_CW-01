@@ -14,17 +14,11 @@
     $passwordHashed = password_hash($password, PASSWORD_DEFAULT);
 
 
-    echo "API_Line-21 - User Variable Value is :".$username."<br>";
-	echo "API_Line-22 - Pass Variable Value is :".$password."<br>";
-    echo "API_Line-22 - Pass Variable Value is :".$passwordHashed."<br>";
-
     $sql = "SELECT * FROM users WHERE username = '$username'";
 	
 	$result = mysqli_query($con, $sql);
 	$count = mysqli_num_rows($result);
 
-    echo $count;
-    echo "<br>";
 
     if($count > 0){
 
@@ -36,7 +30,7 @@
         echo $json_data;
         mysqli_close($con);
 
-        echo $finResult['message'];
+        // echo $finResult['message'];
 
     }else{
 
@@ -55,7 +49,7 @@
                 echo $json_data;
                 mysqli_close($con);
 
-                echo $finResult['message'];
+                // echo $finResult['message'];
 
             }else{
                 
@@ -67,7 +61,7 @@
                 echo $json_data;
                 mysqli_close($con);
 
-                echo $finResult['message'];
+                // echo $finResult['message'];
             }
         
 
