@@ -4,7 +4,7 @@
     $svrname = "localhost";
     $uname = "root";
     $password = "";
-    $db_name = "sdp_cw1_test";
+    $db_name = "sdp_cw1_mob-db";
 
     // create MySQL database Connection
     $con = mysqli_connect($svrname, $uname, $password, $db_name);
