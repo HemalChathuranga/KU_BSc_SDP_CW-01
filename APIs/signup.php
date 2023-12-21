@@ -4,27 +4,23 @@
     
     require_once 'db_conn.php';
     
-    echo "Connected successfully <br>";
+    // echo "Connected successfully <br>";
 
     //Assigning values passed from the form to the variables 
     $username = $_POST['username'];
+    $email = $_POST['email'];
+    $mobNum = $_POST['contact_no'];
 	$password = $_POST['password'];
 
     //Hashing the passed password from the signin form
     $passwordHashed = password_hash($password, PASSWORD_DEFAULT);
 
 
-    echo "API_Line-21 - User Variable Value is :".$username."<br>";
-	echo "API_Line-22 - Pass Variable Value is :".$password."<br>";
-    echo "API_Line-22 - Pass Variable Value is :".$passwordHashed."<br>";
-
-    $sql = "SELECT * FROM users WHERE username = '$username'";
+    $sql = "SELECT * FROM users WHERE email = '$email'";
 	
 	$result = mysqli_query($con, $sql);
 	$count = mysqli_num_rows($result);
 
-    echo $count;
-    echo "<br>";
 
     if($count > 0){
 
@@ -36,11 +32,11 @@
         echo $json_data;
         mysqli_close($con);
 
-        echo $finResult['message'];
+        // echo $finResult['message'];
 
     }else{
 
-        $insertSql = "INSERT INTO users (username, password) VALUES ('$username', '$passwordHashed')";
+        $insertSql = "INSERT INTO users (username, email, password, contact_no) VALUES ('$username', '$email', '$passwordHashed', '$mobNum')";
 
         $insertQuery = mysqli_query($con, $insertSql);
 
@@ -55,7 +51,7 @@
                 echo $json_data;
                 mysqli_close($con);
 
-                echo $finResult['message'];
+                // echo $finResult['message'];
 
             }else{
                 
@@ -67,7 +63,7 @@
                 echo $json_data;
                 mysqli_close($con);
 
-                echo $finResult['message'];
+                // echo $finResult['message'];
             }
         
 
